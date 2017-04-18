@@ -1,0 +1,14 @@
+<application>
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a1ee8299-37d2-4bb2-b5a4-067077e8d63d" name="velonic -MACROSS" url="http://macross.kk-box.com">
+        <fileTransfer host="macross.kk-box.com" port="22" privateKey="$USER_HOME$/.ssh/id_rsa" rootFolder="/home/wusungpeng/workspace/velonic" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</application>
