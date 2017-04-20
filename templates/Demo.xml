@@ -1,10 +1,45 @@
 <templateSet group="Demo">
-  <template name="demo-01" value="/**&#10; * The table associated with the model.&#10; *&#10; * @var string&#10; */&#10;protected $table = 'pt_posts';&#10;&#10;protected $fillable = [&#10;    'title',&#10;    'body'&#10;];" toReformat="false" toShortenFQNames="true">
+  <template name="s-model-post" value="/**&#10; * The table associated with the model.&#10; *&#10; * @var string&#10; */&#10;protected $table = 'pt_posts';&#10;&#10;protected $fillable = [&#10;    'title',&#10;    'body'&#10;];" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="demo-00" value="$table-&gt;string('title');&#10;$table-&gt;text('body');" toReformat="false" toShortenFQNames="true">
+  <template name="s-create-pt-posts" value="$table-&gt;string('title');&#10;$table-&gt;text('body');" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="s-index" value="$posts = Post::all();&#10;return view('post/index', [&#10;    'posts' =&gt; $posts&#10;]);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="s-create" value="return view('post/create');" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="s-store" value="$post = new Post([&#10;    'title' =&gt; $request['title'],&#10;    'body' =&gt; $request['body']&#10;]);&#10;$post-&gt;save();&#10;&#10;return view('post/create');" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="s-create-blade" value="@extends('layouts.app')&#10;&#10;@section('content')&#10;    &lt;div class=&quot;panel panel-default&quot;&gt;&#10;        &lt;div class=&quot;panel-heading&quot;&gt;新增&lt;/div&gt;&#10;        &lt;div class=&quot;panel-body&quot;&gt;&#10;            &lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot; method=&quot;POST&quot; action=&quot;{{ url('/post') }}&quot;&gt;&#10;                {{ csrf_field() }}&#10;                &lt;div class=&quot;form-group&quot;&gt;&#10;                    &lt;label for=&quot;title&quot; class=&quot;col-sm-2 control-label&quot;&gt;標題&lt;/label&gt;&#10;                    &lt;div class=&quot;col-sm-10&quot;&gt;&#10;                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;title&quot; name=&quot;title&quot; placeholder=&quot;Title&quot;&gt;&#10;                    &lt;/div&gt;&#10;                &lt;/div&gt;&#10;                &lt;div class=&quot;form-group&quot;&gt;&#10;                    &lt;label for=&quot;body&quot; class=&quot;col-sm-2 control-label&quot;&gt;內文&lt;/label&gt;&#10;                    &lt;div class=&quot;col-sm-10&quot;&gt;&#10;                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;body&quot; name=&quot;body&quot; placeholder=&quot;Body&quot;&gt;&#10;                    &lt;/div&gt;&#10;                &lt;/div&gt;&#10;                &lt;div class=&quot;form-group&quot;&gt;&#10;                    &lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;&#10;                        &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Submit&lt;/button&gt;&#10;                    &lt;/div&gt;&#10;                &lt;/div&gt;&#10;            &lt;/form&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;@endsection&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="s-index-blade" value="@extends('layouts.app')&#10;&#10;@section('content')&#10;    &lt;div class=&quot;panel panel-default&quot;&gt;&#10;        &lt;div class=&quot;panel-heading&quot;&gt;新增&lt;/div&gt;&#10;        &lt;div class=&quot;panel-body&quot;&gt;&#10;            &lt;table class=&quot;table table-striped task-table&quot;&gt;&#10;&#10;                &lt;!-- Table Headings --&gt;&#10;                &lt;thead&gt;&#10;                &lt;th&gt;標題&lt;/th&gt;&#10;                &lt;th&gt;內文&lt;/th&gt;&#10;                &lt;/thead&gt;&#10;&#10;                &lt;!-- Table Body --&gt;&#10;                &lt;tbody&gt;&#10;                @foreach ($posts as $post)&#10;                    &lt;tr&gt;&#10;                        &lt;!-- Post Title --&gt;&#10;                        &lt;td class=&quot;table-text&quot;&gt;&#10;                            &lt;div&gt;{{ $post-&gt;title }}&lt;/div&gt;&#10;                        &lt;/td&gt;&#10;                        &lt;td class=&quot;table-text&quot;&gt;&#10;                            &lt;div&gt;{{ $post-&gt;body }}&lt;/div&gt;&#10;                        &lt;/td&gt;&#10;                        &lt;td class=&quot;table-text&quot;&gt;&#10;                            &lt;a href=&quot;{{ url('/post/').$post-&gt;id }}&quot;&gt;檢視&lt;/a&gt;&#10;                        &lt;/td&gt;&#10;                    &lt;/tr&gt;&#10;                @endforeach&#10;                &lt;/tbody&gt;&#10;            &lt;/table&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;@endsection&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="s-show" value="return view('post/show', [&#10;    'post' =&gt; $post&#10;]);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="s-show-blade" value="@extends('layouts.app')&#10;&#10;@section('content')&#10;    &lt;div class=&quot;panel panel-default&quot;&gt;&#10;        &lt;div class=&quot;panel-heading&quot;&gt;檢視&lt;/div&gt;&#10;        &lt;div class=&quot;panel-body&quot;&gt;&#10;            &lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot; method=&quot;POST&quot; action=&quot;{{ url('/post') }}&quot;&gt;&#10;                {{ csrf_field() }}&#10;                &lt;div class=&quot;form-group&quot;&gt;&#10;                    &lt;label for=&quot;title&quot; class=&quot;col-sm-2 control-label&quot;&gt;標題&lt;/label&gt;&#10;                    &lt;div class=&quot;col-sm-10&quot;&gt;&#10;                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;title&quot; name=&quot;title&quot; placeholder=&quot;Title&quot; readonly&gt;&#10;                    &lt;/div&gt;&#10;                &lt;/div&gt;&#10;                &lt;div class=&quot;form-group&quot;&gt;&#10;                    &lt;label for=&quot;body&quot; class=&quot;col-sm-2 control-label&quot;&gt;內文&lt;/label&gt;&#10;                    &lt;div class=&quot;col-sm-10&quot;&gt;&#10;                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;body&quot; name=&quot;body&quot; placeholder=&quot;Body&quot; readonly&gt;&#10;                    &lt;/div&gt;&#10;                &lt;/div&gt;&#10;            &lt;/form&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;@endsection&#10;" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />
     </context>
