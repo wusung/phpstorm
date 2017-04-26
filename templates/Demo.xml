@@ -1,10 +1,10 @@
 <templateSet group="Demo">
-  <template name="s-model-post" value="/**&#10; * The table associated with the model.&#10; *&#10; * @var string&#10; */&#10;protected $table = 'pt_posts';&#10;&#10;protected $fillable = [&#10;    'title',&#10;    'body'&#10;];" toReformat="false" toShortenFQNames="true">
+  <template name="s-model-post" value="/**&#10; * The table associated with the model.&#10; *&#10; * @var string&#10; */&#10;protected $table = 'pt_posts';&#10;&#10;protected $fillable = [&#10;    'title',&#10;    'body'&#10;];" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="s-migration-pt-posts" value="$table-&gt;string('title');&#10;$table-&gt;text('body');" toReformat="false" toShortenFQNames="true">
+  <template name="s-migration-pt-posts" value="$table-&gt;string('title');&#10;$table-&gt;text('body');" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />
     </context>
